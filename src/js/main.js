@@ -4,8 +4,7 @@ flsFunctions.isWebp();
 
 import "./libraries/jquery-3.6.0.min.js";
 import "./libraries/slick.min.js";
-import "./modules/checkbox.js"
+import "./modules/slick-slider.js";
 import "./modules/header-scroll.js";
 import "./modules/burger-menu.js";
-import "./modules/slick-slider.js";
-
+import "./modules/checkbox.js"
