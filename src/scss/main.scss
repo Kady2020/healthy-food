@@ -343,7 +343,8 @@ body {
     line-height: 1.2;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: $greenColor;
+    color: $whiteColor;
+    transition: all 0.2s linear;
   }
 
   &::after {
@@ -380,10 +381,7 @@ body {
     }
 
     .logo-switcher__text {
-      &::before {
-        opacity: 1;
-        transform: scale(1);
-      }
+      color: $greenColor;
     }
 
     .logo-switcher__item {
@@ -431,6 +429,61 @@ body {
   }
 }
 //! link button
+
+//! contats items
+.contacts-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 250px));
+  justify-content: center;
+  column-gap: 60px;
+  @include respValue('column-gap', 60, 30, 1);
+  row-gap: 10px;
+  line-height: 1.2;
+
+  &__item {
+    text-align: center;
+    padding: 20px;
+
+    &:hover {
+      .contacts-items__icon {
+        fill: $greenColor;
+      }
+    }
+  }
+
+  &__icon {
+    fill: $lightGrayColor;
+    transition: all 0.2s linear;
+
+    &:not(:last-child) {
+      margin: 0 0 16px 0;
+    }
+
+    max-width: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__title {
+    color: $lightWhiteColor;
+
+    &:not(:last-child) {
+      margin: 0 0 8px 0;
+    }
+  }
+
+  &__subtitle {
+    color: $lightGrayColor;
+
+    &:not(:last-child) {
+      margin: 0 0 8px 0;
+    }
+  }
+}
+//! contats items
 
 /*==================== REPEAT BLOCKS ====================*/
 
@@ -601,6 +654,7 @@ body {
 
   &__body {
     @include respValue('padding-top', 150, 120, 1);
+    padding-bottom: 200px;
   }
 
   &__title {
@@ -626,6 +680,15 @@ body {
     max-width: 220px;
     @include respValue('max-width', 220, 160, 1);
     margin: 0 auto;
+
+    &:not(:last-child) {
+      &:not(:last-child) {
+        @include respValue('margin-bottom', 80, 60, 1);
+      }
+    }
+  }
+
+  &__contacts {
   }
 
   &__bg-img {
@@ -638,3 +701,140 @@ body {
   }
 }
 /*==================== INTRO ====================*/
+
+/*==================== ABOUT ====================*/
+.page {
+  &__about {
+    &:not(:last-child) {
+      margin: 0 0 60px 0;
+    }
+  }
+}
+
+.about {
+  &__container {
+    @include respValue('padding-top', 90, 30, 1);
+    @include respValue('padding-bottom', 90, 30, 1);
+    margin-top: -150px;
+    background: $darkGrayColor;
+    border-radius: 8px;
+  }
+
+  &__title-block-h2 {
+    &:not(:last-child) {
+      margin: 0 0 30px 0;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &__text {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    color: $lightGrayColor;
+
+    &:not(:last-child) {
+      @include respValue('margin-bottom', 90, 60, 1);
+    }
+  }
+
+  &__slider {
+    &:not(:last-child) {
+      margin: 0 0 30px 0;
+    }
+  }
+}
+
+.slick-track {
+  display: flex;
+  align-items: flex-start;
+}
+
+.slider {
+  position: relative;
+  min-width: 0;
+
+  .slick-arrow {
+    position: absolute;
+    font-size: 0;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 6px 0 $whiteColor;
+    transition: all 0.2s linear;
+    z-index: 3;
+
+    &.slick-prev {
+      left: 0;
+      background: url('@img/about/icons/01.png') 0 0 / cover no-repeat;
+    }
+
+    &.slick-next {
+      right: 0;
+      background: url('@img/about/icons/02.png') 0 0 / cover no-repeat;
+    }
+
+    &.slick-disabled {
+      box-shadow: 0 0 6px 0 #f00;
+    }
+  }
+
+  .slick-list {
+    overflow: hidden;
+
+    @media (max-width: 700.98px) {
+      &:not(:last-child) {
+        margin: 0 0 20px 0;
+      }
+    }
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+
+    li {
+      &.slick-active {
+        button {
+          background: $whiteColor;
+        }
+      }
+    }
+
+    button {
+      font-size: 0;
+      width: 7px;
+      height: 7px;
+      background: $lightGrayColor;
+      border-radius: 50%;
+    }
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+  }
+
+  &__image {
+    max-width: 350px;
+    border-radius: 6px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+/*==================== ABOUT ====================*/
