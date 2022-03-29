@@ -853,6 +853,10 @@ body {
     justify-content: center;
     column-gap: 30px;
     row-gap: 20px;
+
+    @media (max-width: 570.98px) {
+      grid-template-columns: repeat(auto-fit, minmax(auto, 325px));
+    }
   }
 
   &__item {
@@ -927,6 +931,9 @@ body {
 /*==================== WORK ====================*/
 
 /*==================== DISHES ====================*/
+/*==================== DISHES ====================*/
+
+/*==================== CHEFS ====================*/
 .chefs {
   &__title-block-h2 {
     &:not(:last-child) {
@@ -1035,5 +1042,46 @@ body {
     }
   }
 }
+/*==================== CHEFS ====================*/
 
-/*==================== DISHES ====================*/
+/*==================== RECIPES ====================*/
+/*==================== RECIPES ====================*/
+
+/*==================== SOCIALS ====================*/
+/*==================== SOCIALS ====================*/
+
+/*==================== FOOTER ====================*/
+.footer {
+  background: $darkGrayColor;
+
+  &__top {
+    border-bottom: 2px solid $middleGrayColor;
+
+    &:not(:last-child) {
+      margin: 0 0 30px 0;
+    }
+  }
+
+  &__container {
+    display: grid;
+    justify-items: center;
+  }
+
+  &__contacts {
+    width: 100%;
+  }
+
+  &__logo {
+    &:not(:last-child) {
+      margin: 0 0 10px 0;
+    }
+  }
+
+  &__copyright {
+    font-size: 12px;
+    line-height: 1.2;
+    text-align: center;
+    color: $lightGrayColor;
+  }
+}
+/*==================== FOOTER ====================*/
