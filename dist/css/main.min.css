@@ -965,10 +965,9 @@ body.lock {
 }
 
 .author {
+  display: grid;
   grid-template: 1fr/auto 1fr;
-  justify-items: stretch;
   align-items: center;
-  text-align-last: left;
   column-gap: 20px;
 }
 .author__photo {

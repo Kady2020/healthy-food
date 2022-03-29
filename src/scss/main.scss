@@ -956,12 +956,14 @@ body {
   // row-gap: 14px;
 
   // @media (min-width: 425.98px) {
-  grid-template: 1fr / auto 1fr;
-  justify-items: stretch;
-  align-items: center;
-  text-align-last: left;
-  column-gap: 20px;
+
   // }
+  display: grid;
+  grid-template: 1fr / auto 1fr;
+  // justify-items: stretch;
+  align-items: center;
+  // text-align-last: left;
+  column-gap: 20px;
 
   &__photo {
     width: 65px;
