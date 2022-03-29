@@ -838,3 +838,93 @@ body {
   }
 }
 /*==================== ABOUT ====================*/
+
+/*==================== WORK ====================*/
+.work {
+  &__title-block-h2 {
+    &:not(:last-child) {
+      @include respValue('margin-bottom', 60, 40, 1);
+    }
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 255px));
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 20px;
+  }
+
+  &__item {
+    background: $darkGrayColor;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 24px 32px 32px 24px;
+    line-height: 1.2;
+    transition: all 0.2s linear;
+
+    &:hover {
+      background: $greenColor;
+
+      .work__title {
+        color: $blackColor;
+
+        &::after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .work__text {
+        color: $darkGrayColor;
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-size: 22px;
+    text-transform: capitalize;
+    color: $whiteColor;
+    transition: all 0.2s linear;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 56px;
+      height: 2px;
+      bottom: -10px;
+      left: 0;
+      background: $greenColor;
+      transition: all 0.4s linear;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 56px;
+      height: 2px;
+      bottom: -10px;
+      left: 0;
+      background: $blackColor;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: left;
+      transition: all 0.2s linear;
+    }
+
+    &:not(:last-child) {
+      margin: 0 0 26px 0;
+    }
+  }
+
+  &__text {
+    font-size: 13px;
+    color: $lightWhiteColor;
+    transition: all 0.2s linear;
+  }
+}
+/*==================== WORK ====================*/
+
+/*==================== DISHES ====================*/
+/*==================== DISHES ====================*/

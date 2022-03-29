@@ -867,3 +867,82 @@ body.lock {
 }
 
 /*==================== ABOUT ====================*/
+/*==================== WORK ====================*/
+.work__title-block-h2:not(:last-child) {
+  margin-bottom: 60px;
+}
+@media (max-width: 1140px) {
+  .work__title-block-h2:not(:last-child) {
+    margin-bottom: calc(40px + 20 * ((100vw - 320px) / 820));
+  }
+}
+.work__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 255px));
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 20px;
+}
+.work__item {
+  background: #222;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 24px 32px 32px 24px;
+  line-height: 1.2;
+  transition: all 0.2s linear;
+}
+.work__item:hover {
+  background: #3c5;
+}
+.work__item:hover .work__title {
+  color: #111;
+}
+.work__item:hover .work__title::after {
+  opacity: 1;
+  transform: scale(1);
+}
+.work__item:hover .work__text {
+  color: #222;
+}
+.work__title {
+  position: relative;
+  font-size: 22px;
+  text-transform: capitalize;
+  color: white;
+  transition: all 0.2s linear;
+}
+.work__title::before {
+  content: "";
+  position: absolute;
+  width: 56px;
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  background: #3c5;
+  transition: all 0.4s linear;
+}
+.work__title::after {
+  content: "";
+  position: absolute;
+  width: 56px;
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  background: #111;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: left;
+  transition: all 0.2s linear;
+}
+.work__title:not(:last-child) {
+  margin: 0 0 26px 0;
+}
+.work__text {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s linear;
+}
+
+/*==================== WORK ====================*/
+/*==================== DISHES ====================*/
+/*==================== DISHES ====================*/
