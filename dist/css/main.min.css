@@ -945,4 +945,91 @@ body.lock {
 
 /*==================== WORK ====================*/
 /*==================== DISHES ====================*/
+.chefs__title-block-h2:not(:last-child) {
+  margin-bottom: 60px;
+}
+@media (max-width: 1140px) {
+  .chefs__title-block-h2:not(:last-child) {
+    margin-bottom: calc(40px + 20 * ((100vw - 320px) / 820));
+  }
+}
+.chefs__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 350px));
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 40px;
+}
+.chefs__item > *:not(:last-child) {
+  margin: 0 0 20px 0;
+}
+
+.author {
+  grid-template: 1fr/auto 1fr;
+  justify-items: stretch;
+  align-items: center;
+  text-align-last: left;
+  column-gap: 20px;
+}
+.author__photo {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.author__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.author__text-wrapper {
+  line-height: 1.2;
+}
+.author__text-wrapper > *:not(:last-child) {
+  margin: 0 0 8px 0;
+}
+.author__name {
+  position: relative;
+  display: inline-block;
+  font-size: 18px;
+  text-transform: capitalize;
+  color: white;
+}
+.author__name::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background: #3c5;
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: left;
+  transition: all 0.2s linear;
+}
+.author__name:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.author__position {
+  font-size: 12px;
+  color: #888;
+}
+
+.portfolio {
+  display: grid;
+  grid-template: minmax(auto, 65px)/2fr repeat(2, 1fr);
+  column-gap: 20px;
+}
+.portfolio__image {
+  border-radius: 2px;
+  overflow: hidden;
+}
+.portfolio__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /*==================== DISHES ====================*/
