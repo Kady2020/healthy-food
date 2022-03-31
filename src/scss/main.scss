@@ -262,9 +262,12 @@ body {
   line-height: 1.2;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.3);
+  color: $whiteColor;
   border-radius: 4px;
   padding: 5px;
   overflow: hidden;
+  transition: all 0.2s linear;
   z-index: 3;
 
   &__item {
@@ -284,19 +287,11 @@ body {
   }
 
   &:hover {
+    background: rgba(0, 0, 0, 1);
+
     &::before {
       animation: highlight 1.2s linear;
     }
-  }
-
-  &_bg-black {
-    background: rgba(0, 0, 0, 1);
-    color: $whiteColor;
-  }
-
-  &_bg-transp {
-    background: rgba(0, 0, 0, 0.1);
-    color: $lightGrayColor;
   }
 }
 
@@ -484,6 +479,39 @@ body {
   }
 }
 //! contats items
+
+//! involvement
+.involvement {
+  display: flex;
+  align-items: center;
+  column-gap: 24px;
+  font-weight: 700;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+
+    &:hover {
+      .involvement__icon,
+      .involvement__sum {
+        fill: $greenColor;
+        color: $greenColor;
+      }
+    }
+  }
+
+  &__icon {
+    fill: $whiteColor;
+    transition: all 0.2s linear;
+  }
+
+  &__sum {
+    color: $lightWhiteColor;
+    transition: all 0.2s linear;
+  }
+}
+//! involvement
 
 /*==================== REPEAT BLOCKS ====================*/
 
@@ -686,9 +714,6 @@ body {
         @include respValue('margin-bottom', 80, 60, 1);
       }
     }
-  }
-
-  &__contacts {
   }
 
   &__bg-img {
@@ -1045,6 +1070,208 @@ body {
 /*==================== CHEFS ====================*/
 
 /*==================== RECIPES ====================*/
+
+.recipes {
+  &__title-block-h2 {
+    &:not(:last-child) {
+      @include respValue('margin-bottom', 60, 40, 1);
+    }
+  }
+
+  &__body {
+    display: grid;
+
+    justify-content: center;
+    gap: 30px;
+
+    @media (min-width: 767.98px) {
+      grid-template: 1fr / repeat(2, 1fr);
+    }
+  }
+
+  &__single-item {
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &__single-item-inner {
+    display: grid;
+    justify-items: center;
+    max-width: 360px;
+    margin: 0 auto;
+    @include respValue('padding-top', 60, 40, 1);
+    @include respValue('padding-bottom', 60, 40, 1);
+
+    > *:not(:last-child) {
+      @include respValue('margin-bottom', 70, 40, 1);
+    }
+  }
+
+  &__single-item-button {
+    padding: 0 16px;
+  }
+
+  &__single-item-date {
+    text-transform: capitalize;
+    color: $lightWhiteColor;
+  }
+
+  &__single-item-text {
+    font-size: 24px;
+    line-height: 1.2;
+    color: $whiteColor;
+  }
+
+  &__single-item-author {
+    font-size: 14px;
+    line-height: 1.2;
+    text-transform: capitalize;
+    color: $lightWhiteColor;
+  }
+
+  &__single-item-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+.triple-item {
+  display: grid;
+  gap: 30px;
+
+  &__inner {
+    position: relative;
+    padding: 30px;
+    background-color: $darkGrayColor;
+    border-radius: 6px;
+    overflow: hidden;
+    display: grid;
+    align-content: center;
+    transition: all 0.2s linear;
+    cursor: pointer;
+
+    > *:not(:last-child) {
+      margin: 0 0 10px 0;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(51, 204, 85, 0.7);
+      border-radius: 6px;
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: center;
+      transition: all 0.2s linear;
+      z-index: 4;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .triple-item__text {
+        color: $blackColor;
+      }
+
+      .triple-item__button {
+        background: $blackColor;
+      }
+
+      .triple-item__date {
+        color: $darkGrayColor;
+      }
+
+      .involvement {
+        display: flex;
+        align-items: center;
+        column-gap: 24px;
+        font-weight: 700;
+
+        &__inner {
+          &:hover {
+            .involvement__icon,
+            .involvement__sum {
+              fill: $whiteColor;
+              color: $whiteColor;
+            }
+          }
+        }
+
+        &__icon {
+          fill: $blackColor;
+        }
+
+        &__sum {
+          color: $blackColor;
+        }
+      }
+    }
+
+    @media (max-width: 425.98px) {
+      > *:not(:last-child) {
+        margin: 0 0 20px 0;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.4;
+    color: $whiteColor;
+    position: relative;
+    z-index: 5;
+  }
+
+  &__inner-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+  }
+
+  &__button-date-box {
+    display: flex;
+    align-items: center;
+    column-gap: 16px;
+
+    @media (max-width: 425.98px) {
+      flex-direction: column;
+      row-gap: 10px;
+    }
+  }
+
+  &__button {
+    padding: 0 8px;
+  }
+
+  &__date {
+    color: $lightWhiteColor;
+  }
+
+  &__bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+}
+
 /*==================== RECIPES ====================*/
 
 /*==================== SOCIALS ====================*/
