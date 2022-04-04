@@ -964,36 +964,138 @@ body {
   }
 
   &__body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 350px));
+    justify-content: center;
+    @include respValue('gap', 30, 20, 1);
+
+    @media (max-width: 767.98px) {
+      grid-template-columns: repeat(auto-fit, minmax(auto, 300px));
+    }
+
+    @media (max-width: 654.98px) {
+      grid-template-columns: repeat(auto-fit, minmax(auto, 350px));
+    }
   }
 
   &__item {
+    background: $middleGrayColor;
+    border-radius: 6px;
+    overflow: hidden;
   }
 
   &__image {
+    max-width: 350px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
   &__content {
+    line-height: 1.2;
+    @include respValue('padding', 30, 20, 1);
+    > *:not(:last-child) {
+      margin: 0 0 20px 0;
+    }
   }
 
   &__title-block-h3 {
+    > *:not(:last-child) {
+      margin: 0 0 6px 0;
+    }
   }
 
   &__title {
+    @include respValue('font-size', 32, 22, 1);
+    color: $whiteColor;
   }
 
   &__subtitle {
+    font-size: 12px;
+    color: $lightWhiteColor;
   }
 
   &__text {
+    font-size: 14px;
+    color: $lightGrayColor;
   }
 
   &__star-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
   }
 
   &__rating {
   }
 
   &__button {
+    border: 2px solid $lightGrayColor;
+    padding: 0 30px;
+
+    &:hover {
+      border: none;
+    }
+  }
+}
+
+.rating {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+
+  &::before {
+    content: '★★★★★';
+    display: block;
+  }
+
+  &__body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow: hidden;
+  }
+
+  &__item {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+
+    &:checked,
+    &:checked ~ .rating__lable {
+      color: $yellowColor;
+    }
+  }
+
+  &__lable {
+    flex: 0 0 20%;
+    height: 100%;
+    cursor: pointer;
+    color: $lightWhiteColor;
+
+    &::before {
+      content: '★';
+      display: block;
+      transition: all 0.2s linear;
+    }
+
+    &:hover,
+    &:hover ~ .rating__lable,
+    &:checked ~ .rating__lable:hover {
+      color: $yellowColor;
+    }
   }
 }
 /*==================== DISHES ====================*/
@@ -1120,7 +1222,6 @@ body {
 
   &__body {
     display: grid;
-
     justify-content: center;
     gap: 30px;
 
